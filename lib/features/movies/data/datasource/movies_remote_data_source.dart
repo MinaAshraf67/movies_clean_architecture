@@ -1,16 +1,59 @@
 import 'package:dio/dio.dart';
+import 'package:movies_clean_architecture/core/error/exceptions.dart';
+import 'package:movies_clean_architecture/core/network/api_constant.dart';
+import 'package:movies_clean_architecture/core/network/error_message_model.dart';
 import 'package:movies_clean_architecture/features/movies/data/model/movies_model.dart';
 
-class MoviesRemoteDataSource {
+abstract class BaseMovieRemoteDataSource {
+  Future<List<MoviesModel>> getNowPlayingMovies();
+  Future<List<MoviesModel>> getPopularMovies();
+  Future<List<MoviesModel>> getTopRatedMovies();
+}
+
+class MoviesRemoteDataSource implements BaseMovieRemoteDataSource {
+  @override
   Future<List<MoviesModel>> getNowPlayingMovies() async {
-    Response response = await Dio().get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=e083b4e145a441087a670922acb059fc");
+    Response response = await Dio().get(ApiConstant.nowPlayingMoviesEndPoint);
 
     if (response.statusCode == 200) {
-      return List<MoviesModel>.from((response.data["results"] as List)
-          .map((e) => MoviesModel.fromJson(e)));
+      return List<MoviesModel>.from(
+        (response.data["results"] as List).map(
+          (e) => MoviesModel.fromJson(e),
+        ),
+      );
     } else {
-      return [];
+      throw ServerException(
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
+    }
+  }
+
+  @override
+  Future<List<MoviesModel>> getPopularMovies() async {
+    Response response = await Dio().get(ApiConstant.popularMoviesEndpoint);
+    if (response.statusCode == 200) {
+      return List<MoviesModel>.from(
+        (response.data["results"] as List).map(
+          (e) => MoviesModel.fromJson(e),
+        ),
+      );
+    } else {
+      throw ServerException(
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
+    }
+  }
+
+  @override
+  Future<List<MoviesModel>> getTopRatedMovies() async {
+    Response response = await Dio().get(ApiConstant.topRatedMoviesEndpoint);
+    if (response.statusCode == 200) {
+      return List<MoviesModel>.from(
+        (response.data["results"] as List).map(
+          (e) => MoviesModel.fromJson(e),
+        ),
+      );
+    } else {
+      throw ServerException(
+          errorMessageModel: ErrorMessageModel.fromJson(response.data));
     }
   }
 }
