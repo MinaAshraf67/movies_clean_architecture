@@ -5,7 +5,7 @@ import 'package:movies_clean_architecture/features/movies/domain/entities/movies
 import '../repository/base_movie_repository.dart';
 
 class GetTopRatedMoviesUseCase {
-  final BaseMovieRepository baseMovieRepository;
+  final BaseMoviesRepository baseMovieRepository;
 
   GetTopRatedMoviesUseCase({required this.baseMovieRepository});
 

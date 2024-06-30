@@ -4,11 +4,11 @@ import 'package:movies_clean_architecture/features/movies/domain/entities/movies
 import 'package:movies_clean_architecture/features/movies/domain/repository/base_movie_repository.dart';
 
 class GetNowPlayingMoviesUseCase {
-  final BaseMovieRepository baseMovieRepository;
+  final BaseMoviesRepository baseMoviesRepository;
 
-  GetNowPlayingMoviesUseCase({required this.baseMovieRepository});
+  GetNowPlayingMoviesUseCase({required this.baseMoviesRepository});
 
   Future<Either<Failure, List<Movies>>> execute() async {
-    return await baseMovieRepository.getNowPlayingMovies();
+    return await baseMoviesRepository.getNowPlayingMovies();
   }
 }

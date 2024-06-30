@@ -5,13 +5,13 @@ import 'package:movies_clean_architecture/features/movies/data/datasource/movies
 import 'package:movies_clean_architecture/features/movies/domain/entities/movies.dart';
 import 'package:movies_clean_architecture/features/movies/domain/repository/base_movie_repository.dart';
 
-class MoviesRepository implements BaseMovieRepository {
-  final BaseMovieRemoteDataSource baseMovieRemoteDataSource;
+class MoviesRepository implements BaseMoviesRepository {
+  final BaseMoviesRemoteDataSource baseMoviesRemoteDataSource;
 
-  MoviesRepository({required this.baseMovieRemoteDataSource});
+  MoviesRepository({required this.baseMoviesRemoteDataSource});
   @override
   Future<Either<Failure, List<Movies>>> getNowPlayingMovies() async {
-    final result = await baseMovieRemoteDataSource.getNowPlayingMovies();
+    final result = await baseMoviesRemoteDataSource.getNowPlayingMovies();
 
     try {
       return Right(result);
@@ -26,7 +26,7 @@ class MoviesRepository implements BaseMovieRepository {
 
   @override
   Future<Either<Failure, List<Movies>>> getPopularMovies() async {
-    final result = await baseMovieRemoteDataSource.getPopularMovies();
+    final result = await baseMoviesRemoteDataSource.getPopularMovies();
 
     try {
       return Right(result);
@@ -38,7 +38,7 @@ class MoviesRepository implements BaseMovieRepository {
 
   @override
   Future<Either<Failure, List<Movies>>> getTopRatedMovies() async {
-    var result = await baseMovieRemoteDataSource.getTopRatedMovies();
+    var result = await baseMoviesRemoteDataSource.getTopRatedMovies();
     try {
       return Right(result);
     } on ServerException catch (failure) {
