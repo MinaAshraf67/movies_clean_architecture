@@ -2,7 +2,7 @@
 import 'package:equatable/equatable.dart';
 
 import 'package:movies_clean_architecture/core/utils/enums.dart';
-import 'package:movies_clean_architecture/features/movies/domain/entities/movies.dart';
+import 'package:movies_clean_architecture/movies/domain/entities/movies.dart';
 
 class MoviesState extends Equatable {
   final List<Movies> nowPlayingMovies;

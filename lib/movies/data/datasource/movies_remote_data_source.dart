@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:movies_clean_architecture/core/error/exceptions.dart';
 import 'package:movies_clean_architecture/core/network/api_constant.dart';
 import 'package:movies_clean_architecture/core/network/error_message_model.dart';
-import 'package:movies_clean_architecture/features/movies/data/model/movies_model.dart';
+import 'package:movies_clean_architecture/movies/data/model/movies_model.dart';
 
 abstract class BaseMoviesRemoteDataSource {
   Future<List<MoviesModel>> getNowPlayingMovies();

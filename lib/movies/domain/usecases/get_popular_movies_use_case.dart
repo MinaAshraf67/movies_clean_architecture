@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:movies_clean_architecture/core/error/failure.dart';
-import 'package:movies_clean_architecture/features/movies/domain/entities/movies.dart';
-import 'package:movies_clean_architecture/features/movies/domain/repository/base_movie_repository.dart';
+import 'package:movies_clean_architecture/movies/domain/entities/movies.dart';
+import 'package:movies_clean_architecture/movies/domain/repository/base_movie_repository.dart';
 
 class GetPopularMoviesUseCase {
   final BaseMoviesRepository baseMovieRepository;

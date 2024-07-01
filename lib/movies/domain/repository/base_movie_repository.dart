@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:movies_clean_architecture/core/error/failure.dart';
-import 'package:movies_clean_architecture/features/movies/domain/entities/movies.dart';
+import 'package:movies_clean_architecture/movies/domain/entities/movies.dart';
 
 abstract class BaseMoviesRepository {
   Future<Either<Failure, List<Movies>>> getNowPlayingMovies();

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_clean_architecture/core/services/services_locator.dart';
-import 'package:movies_clean_architecture/features/movies/presentation/screens/movie_screen.dart';
+import 'package:movies_clean_architecture/movies/presentation/screens/movie_screen.dart';
 
 void main() {
   ServicesLocator().init();

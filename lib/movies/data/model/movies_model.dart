@@ -1,4 +1,4 @@
-import 'package:movies_clean_architecture/features/movies/domain/entities/movies.dart';
+import 'package:movies_clean_architecture/movies/domain/entities/movies.dart';
 
 class MoviesModel extends Movies {
   const MoviesModel(

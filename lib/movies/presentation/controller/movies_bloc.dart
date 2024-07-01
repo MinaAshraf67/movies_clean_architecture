@@ -1,11 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_clean_architecture/core/utils/enums.dart';
-import 'package:movies_clean_architecture/features/movies/data/datasource/movies_remote_data_source.dart';
-import 'package:movies_clean_architecture/features/movies/data/repository/movies_repository.dart';
-import 'package:movies_clean_architecture/features/movies/domain/repository/base_movie_repository.dart';
-import 'package:movies_clean_architecture/features/movies/domain/usecases/get_now_playing_movies_use_case.dart';
-import 'package:movies_clean_architecture/features/movies/presentation/controller/movies_event.dart';
-import 'package:movies_clean_architecture/features/movies/presentation/controller/movies_state.dart';
+import 'package:movies_clean_architecture/movies/data/datasource/movies_remote_data_source.dart';
+import 'package:movies_clean_architecture/movies/data/repository/movies_repository.dart';
+import 'package:movies_clean_architecture/movies/domain/repository/base_movie_repository.dart';
+import 'package:movies_clean_architecture/movies/domain/usecases/get_now_playing_movies_use_case.dart';
+import 'package:movies_clean_architecture/movies/presentation/controller/movies_event.dart';
+import 'package:movies_clean_architecture/movies/presentation/controller/movies_state.dart';
 
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   final GetNowPlayingMoviesUseCase getNowPlayingMoviesUseCase;
