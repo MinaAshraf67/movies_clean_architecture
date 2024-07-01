@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:movies_clean_architecture/core/error/exceptions.dart';
-import 'package:movies_clean_architecture/core/network/api_constant.dart';
+import 'package:movies_clean_architecture/core/network/api_endpoints.dart';
 import 'package:movies_clean_architecture/core/network/error_message_model.dart';
 import 'package:movies_clean_architecture/movies/data/model/movies_model.dart';
 
@@ -13,7 +13,7 @@ abstract class BaseMoviesRemoteDataSource {
 class MoviesRemoteDataSource implements BaseMoviesRemoteDataSource {
   @override
   Future<List<MoviesModel>> getNowPlayingMovies() async {
-    Response response = await Dio().get(ApiConstant.nowPlayingMoviesEndPoint,
+    Response response = await Dio().get(ApiEndpoints.nowPlayingMoviesEndPoint,
         options: Options(headers: {
           "accept": 'application/json',
           "Authorization":
@@ -34,7 +34,7 @@ class MoviesRemoteDataSource implements BaseMoviesRemoteDataSource {
 
   @override
   Future<List<MoviesModel>> getPopularMovies() async {
-    Response response = await Dio().get(ApiConstant.popularMoviesEndpoint);
+    Response response = await Dio().get(ApiEndpoints.popularMoviesEndpoint);
     if (response.statusCode == 200) {
       return List<MoviesModel>.from(
         (response.data["results"] as List).map(
@@ -49,7 +49,7 @@ class MoviesRemoteDataSource implements BaseMoviesRemoteDataSource {
 
   @override
   Future<List<MoviesModel>> getTopRatedMovies() async {
-    Response response = await Dio().get(ApiConstant.topRatedMoviesEndpoint);
+    Response response = await Dio().get(ApiEndpoints.topRatedMoviesEndpoint);
     if (response.statusCode == 200) {
       return List<MoviesModel>.from(
         (response.data["results"] as List).map(
